@@ -23,8 +23,8 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <meta name="description" content="This blog post will guide through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation." />
+  <meta name="description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation." />
   <meta name="generator" content="Hugo 0.68.3 with theme pure" />
   <title>Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver - Vibhutha Kumarage</title>
   
@@ -34,25 +34,25 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
   <meta property="og:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver" />
-<meta property="og:description" content="This blog post will guide through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation." />
+<meta property="og:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vibhuthasak.github.io/2019/03/swift-tensorflow-guide/" />
 <meta property="article:published_time" content="2019-03-31T10:52:52+05:30" />
 <meta property="article:modified_time" content="2019-03-31T10:52:52+05:30" />
 <meta itemprop="name" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver">
-<meta itemprop="description" content="This blog post will guide through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation.">
+<meta itemprop="description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation.">
 <meta itemprop="datePublished" content="2019-03-31T10:52:52&#43;05:30" />
 <meta itemprop="dateModified" content="2019-03-31T10:52:52&#43;05:30" />
-<meta itemprop="wordCount" content="863">
+<meta itemprop="wordCount" content="866">
 
 
 
 <meta itemprop="keywords" content="Deep Learning,swift,tensorflow," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver"/>
-<meta name="twitter:description" content="This blog post will guide through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation."/>
+<meta name="twitter:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation."/>
 
   <!--[if lte IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -212,12 +212,12 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
       <p align="center">
 <img src="/img/tf-swift/titleImage.png" alt="Title Image"/>
 </p>
-<p>This blog post will guide through the process of install <strong>Swift for Tensorflow</strong> on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with <strong>Swift</strong> on the <strong>Jupyter Notebook</strong> like you do in <strong>Python for Tensorflow</strong>.</p>
+<p>This blog post will guide you through the process of install <strong>Swift for Tensorflow</strong> on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with <strong>Swift</strong> on the <strong>Jupyter Notebook</strong> like you do in <strong>Python for Tensorflow</strong>.</p>
 <h3 id="step-01-installing-cuda">Step 01: Installing CUDA</h3>
-<p>There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation. You can skip to the next step if you prefer CPU only installation.
+<p>There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation.
 <br/>
 <br/>
-If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below commmand</p>
+If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command</p>
 <pre><code class="language-console">(base) vkartz@ubuntu-dl:~$ nvcc --version
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2018 NVIDIA Corporation
@@ -235,9 +235,9 @@ apt install nvidia-cuda-toolkit
 Please ask your administrator.
 </code></pre>
 <ul>
-<li>This error have two possibilities:
+<li>This error has two possibilities:
 <ol>
-<li>Your machine <strong>have CUDA installed</strong> but Environment variable is not set.</li>
+<li>Your machine <strong>have CUDA installed</strong> but the Environment variable is not set.</li>
 <li>Your machine <strong>do not have CUDA installed</strong>.</li>
 </ol>
 </li>
@@ -269,7 +269,7 @@ To install CUDA on your machine properly, Go to <a href="https://www.tensorflow.
 <strong>If this went fine, You can go to the next step 😃</strong> <br/><br/></p>
 <h3 id="step-02-installing-swift-for-tensorflow">Step 02: Installing Swift for Tensorflow</h3>
 <p>You can follow the *<a href="https://github.com/tensorflow/swift/blob/master/Installation.md#installation-1">Installation Guide</a> on docs to install **but,**<br/>
-*According to my experience during the process, I suggest to follow below <strong>Modified</strong> steps which will help you in later steps and clean installation.<br/></p>
+*According to my experience during the process, I suggest following below <strong>Modified</strong> steps which will help you in later steps and clean installation.<br/></p>
 <ul>
 <li>Go to your home directory.</li>
 </ul>
@@ -289,7 +289,7 @@ Downloaded file looks like <br>_swift-tensorflow-RELEASE-0.2-cuda10.0-cudnn7-ubu
 (base) vkartz@ubuntu-dl:~$ tar -C swift-toolchain -xzf swift-tensorflow-RELEASE-0.2-cuda10.0-cudnn7-ubuntu18.04.tar.gz
 </code></pre>
 <ul>
-<li>To check whether the installation completed. Go <code>~/swift-toolchain/usr/bin</code> directory and run <code>./swift</code> REPL like below.</li>
+<li>To check whether the installation is completed. Go <code>~/swift-toolchain/usr/bin</code> directory and run <code>./swift</code> REPL like below.</li>
 </ul>
 <pre><code class="language-console">(base) vkartz@ubuntu-dl:~$ cd ~/swift-toolchain/usr/bin
 (base) vkartz@ubuntu-dl:~/swift-toolchain/usr/bin$ ./swift
@@ -299,10 +299,10 @@ Type :help for assistance.
 Hello world
   2&gt;
 </code></pre>
-<p><strong>If above steps went fine, You successfully installed swift and you can go to the next step 😃</strong> <br/><br/></p>
+<p><strong>If the above steps went fine, You successfully installed swift and you can go to the next step 😃</strong> <br/><br/></p>
 <h3 id="step-03-installing-jupyter-notebook-for-swift">Step 03: Installing Jupyter-Notebook for Swift</h3>
-<p>In this step I am following <a href="https://github.com/google/swift-jupyter#swift-jupyter">Google&rsquo;s swift-jupyter</a> Installation Guide with some <strong>Modifications</strong>.<br/>
-On the above guide there are several options availble to install Jupyter Notebook for Swift. But I strongly suggest to Install this via <strong>Conda</strong>.<br/></p>
+<p>In this step, I am following <a href="https://github.com/google/swift-jupyter#swift-jupyter">Google&rsquo;s swift-jupyter</a> Installation Guide with some <strong>Modifications</strong>.<br/>
+On the above guide, there are several options available to install Jupyter Notebook for Swift. But I strongly suggest installing this via <strong>Conda</strong>.<br/></p>
 <ul>
 <li>Create a new Conda Environment for swift-tensorflow</li>
 </ul>
@@ -331,12 +331,12 @@ EnableIPythonDisplay.swift  README.md  register.py       swift_kernel.py
 KernelCommunicator.swift    docker     requirements.txt  swift_shell
 (swift-tensorflow) vkartz@ubuntu-dl:~/swift-jupyter$
 </code></pre>
-<p>For the next step, <br> you need to find installed locations for <strong>Swift toolchain</strong> and <strong>Python install location for current conda Environment</strong>.</p>
+<p>For the next step, <br> you need to find installed locations for <strong>Swift toolchain</strong> and <strong>Python installed location for current conda Environment</strong>.</p>
 <ol>
 <li><em>Swift toolchain location</em>:<br>
 If you follow Step 02 correctly your Swift toolchain location should be <code>~/swift-toolchain/</code></li>
 <li><em>Python Installed location for Current Conda Environment</em>:<br>
-Run below command on your terminal to locate the location.</li>
+Run the below command on your terminal to locate the location.</li>
 </ol>
 <pre><code class="language-console">(swift-tensorflow) vkartz@ubuntu-dl:~$ conda info | grep &quot;active env location&quot;
   active env location : /home/vkartz/anaconda3/envs/swift-tensorflow
@@ -346,7 +346,7 @@ Run below command on your terminal to locate the location.</li>
 </ul>
 <pre><code class="language-console">(swift-tensorflow) vkartz@ubuntu-dl:~/swift-jupyter$ python register.py --sys-prefix --swift-toolchain ~/swift-toolchain/ --swift-python-library ~/anaconda3/envs/swift-tensorflow/lib/libpython3.6m.so
 </code></pre>
-<p>Response should be like below,<br></p>
+<p>The response should be like below,<br></p>
 <pre><code class="language-console">kernel.json:
 {
   &quot;argv&quot;: [

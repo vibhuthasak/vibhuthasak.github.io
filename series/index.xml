@@ -15,8 +15,8 @@
       <pubDate>Sun, 31 Mar 2019 10:52:52 +0530</pubDate>
       
       <guid>https://vibhuthasak.github.io/2019/03/swift-tensorflow-guide/</guid>
-      <description>This blog post will guide through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on with CUDA installation.</description>
+      <description>This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation.</description>
     </item>
     
     <item>
