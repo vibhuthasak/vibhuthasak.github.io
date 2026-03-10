@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+        My Experience with UV: A Python Package Manager - Vibhutha Kumarage
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="I&rsquo;ve been using Python for years, and if there&rsquo;s one thing that&rsquo;s always been a bit of a chore, it&rsquo;s managing packages and virtual environments. Between pip, virtualenv, pip-tools, and whatever else the project demands, the setup overhead adds up. So when I heard about uv — a Rust-based Python package manager built by the folks at Astral — I was curious enough to give it a proper try.
+What follows is my honest experience switching to uv for day-to-day Python development: what worked, what surprised me, and where I still have questions.
+" />
+    <meta name="generator" content="Hugo 0.157.0 with theme pure" />
+    <title>My Experience with UV: A Python Package Manager - Vibhutha Kumarage</title>
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/style.min.65b309169c8af86b882c62df7965554760a0995948f11e07c6fc9fc152dba9db.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:url" content="http://localhost:1313/2026/03/uv-python-package-manager/">
+  <meta property="og:site_name" content="Vibhutha Kumarage">
+  <meta property="og:title" content="My Experience with UV: A Python Package Manager">
+  <meta property="og:description" content="I’ve been using Python for years, and if there’s one thing that’s always been a bit of a chore, it’s managing packages and virtual environments. Between pip, virtualenv, pip-tools, and whatever else the project demands, the setup overhead adds up. So when I heard about uv — a Rust-based Python package manager built by the folks at Astral — I was curious enough to give it a proper try.
+What follows is my honest experience switching to uv for day-to-day Python development: what worked, what surprised me, and where I still have questions.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-03-06T00:00:00+05:30">
+    <meta property="article:modified_time" content="2026-03-06T00:00:00+05:30">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Tools">
+
+  <meta itemprop="name" content="My Experience with UV: A Python Package Manager">
+  <meta itemprop="description" content="I’ve been using Python for years, and if there’s one thing that’s always been a bit of a chore, it’s managing packages and virtual environments. Between pip, virtualenv, pip-tools, and whatever else the project demands, the setup overhead adds up. So when I heard about uv — a Rust-based Python package manager built by the folks at Astral — I was curious enough to give it a proper try.
+What follows is my honest experience switching to uv for day-to-day Python development: what worked, what surprised me, and where I still have questions.">
+  <meta itemprop="datePublished" content="2026-03-06T00:00:00+05:30">
+  <meta itemprop="dateModified" content="2026-03-06T00:00:00+05:30">
+  <meta itemprop="wordCount" content="93">
+  <meta itemprop="keywords" content="Python,Tools">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My Experience with UV: A Python Package Manager">
+  <meta name="twitter:description" content="I’ve been using Python for years, and if there’s one thing that’s always been a bit of a chore, it’s managing packages and virtual environments. Between pip, virtualenv, pip-tools, and whatever else the project demands, the setup overhead adds up. So when I heard about uv — a Rust-based Python package manager built by the folks at Astral — I was curious enough to give it a proper try.
+What follows is my honest experience switching to uv for day-to-day Python development: what worked, what surprised me, and where I still have questions.">
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-white" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      <div class="profile-block text-center">
+        <a id="avatar" style="width: 50%; height: 50%; display: inline-block;">
+          <img style="border-radius: 10px;" src="/img/avatar.jpg">
+        </a>
+        <h2 class="hidden-xs hidden-sm" style="font-size: 30px;">Vibhutha Kumarage</h2>
+        <h2 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker" style="margin-right: 5px;"></i>Colombo, Sri Lanka</small>
+      </div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+          <li class="menu-item menu-item-home">
+              <a href="/">
+                  <i class="icon icon-home-fill"></i>
+                <span class="menu-title">Home</span>
+              </a>
+          </li>
+          <li class="menu-item menu-item-archives">
+              <a href="/posts/">
+                  <i class="icon icon-folder"></i>
+                <span class="menu-title">Archives</span>
+              </a>
+          </li>
+          <li class="menu-item menu-item-about">
+              <a href="/about/">
+                  <i class="icon icon-cup-fill"></i>
+                <span class="menu-title">About</span>
+              </a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header><aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="http://localhost:1313/tags/deep-learning/" class="tag-list-link">deep learning</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="http://localhost:1313/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="http://localhost:1313/tags/swift/" class="tag-list-link">swift</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="http://localhost:1313/tags/tensorflow/" class="tag-list-link">tensorflow</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="http://localhost:1313/tags/tools/" class="tag-list-link">tools</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="http://localhost:1313/2026/03/uv-python-package-manager/" class="title">My Experience with UV: A Python Package Manager</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2026-03-06 00:00:00 &#43;0530 &#43;0530" itemprop="datePublished">2026-03-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="http://localhost:1313/2019/03/swift-tensorflow-guide/" class="title">Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-03-31 10:52:52 &#43;0530 &#43;0530" itemprop="datePublished">2019-03-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="http://localhost:1313/2018/04/neural_style/" class="title">Neural Style Transfer Explained</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2018-04-29 10:20:35 &#43;0530 &#43;0530" itemprop="datePublished">2018-04-29</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2026/03/uv-python-package-manager/"
+    >My Experience with UV: A Python Package Manager</a
+  >
+</h1>
+
+      <div class="article-meta">
+  
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="http://localhost:1313/2026/03/uv-python-package-manager/" class="article-date">
+  <time datetime="2026-03-06 00:00:00 &#43;0530 &#43;0530" itemprop="datePublished">2026-03-06</time>
+</a>
+</span>
+  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/python/"> Python </a>
+    <a class="article-tag-link" href="/tags/tools/"> tools </a>
+  </span>
+
+  <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2026/03/uv-python-package-manager/#comments"
+      class="article-comment-link">Comments</a></span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
+</div>
+      
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>I&rsquo;ve been using Python for years, and if there&rsquo;s one thing that&rsquo;s always been a bit of a chore, it&rsquo;s managing packages and virtual environments. Between <code>pip</code>, <code>virtualenv</code>, <code>pip-tools</code>, and whatever else the project demands, the setup overhead adds up. So when I heard about <a href="https://github.com/astral-sh/uv">uv</a> — a Rust-based Python package manager built by the folks at Astral — I was curious enough to give it a proper try.</p>
+<p>What follows is my honest experience switching to <code>uv</code> for day-to-day Python development: what worked, what surprised me, and where I still have questions.</p>
+
+    </div>
+    <div class="article-footer">
+
+    </div>
+  </article>
+  
+<section id="comments">
+</section>
+
+  
+</div>
+<nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="http://localhost:1313/2019/03/swift-tensorflow-guide/" title="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/vibhuthasak" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://stackoverflow.com/users/7029721/bodhi94" target="_blank" title="stackoverflow" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-stackoverflow"></i></a></li>
+    <li><a href="https://twitter.com/vibhuthasak" target="_blank" title="twitter" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-twitter"></i></a></li>
+</ul>
+  <div class="copyright">
+    <p class="copyright">© 2026 Vibhutha Kumarage
+      <br><a href="https://creativecommons.org/licenses/by/4.0">All Rights Reserved</a>.
+      <br>Theme By <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>
+      <br>Built with <a href="https://gohugo.io/">Hugo</a>
+    </p>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('\x3Cscript src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="http://localhost:1313/js/application.min.e4989ab4dc212027af8773861b05b6bc333a1217f6b0a1b3377a3a3dbd454483.js"></script>
+<script src="http://localhost:1313/js/plugin.min.55cc3498567c2081a6895075033d3f95a086b09c2dbbf31cc4bc3bba415f0bd6.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'http:\/\/localhost:1313\/',
+            CONTENT_URL: 'http:\/\/localhost:1313\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="http://localhost:1313/js/insight.min.716b0c6a00b68ccc31a2b65345f3412f4246ffa94a90f8e25d525528b4504f9937880692bbe619023233caba5d0a17ebe23d7cfb57cd3a88f23ea337ad5e4d00.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+
+  </body>
+</html>
