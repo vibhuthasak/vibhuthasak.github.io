@@ -5,6 +5,7 @@
     <link>https://vibhuthasak.github.io/tags/</link>
     <description>Recent content in Tags on Vibhutha Kumarage</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 31 Mar 2019 10:52:52 +0530</lastBuildDate>
     
         <atom:link href="https://vibhuthasak.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -16,8 +17,15 @@
       <pubDate>Sun, 31 Mar 2019 10:52:52 +0530</pubDate>
       
       <guid>https://vibhuthasak.github.io/2019/03/swift-tensorflow-guide/</guid>
-      <description>This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation.</description>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://vibhuthasak.github.io/img/tf-swift/titleImage.png&#34; alt=&#34;Title Image&#34;/&gt;
+&lt;/p&gt;
+&lt;p&gt;This blog post will guide you through the process of install &lt;strong&gt;Swift for Tensorflow&lt;/strong&gt; on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with &lt;strong&gt;Swift&lt;/strong&gt; on the &lt;strong&gt;Jupyter Notebook&lt;/strong&gt; like you do in &lt;strong&gt;Python for Tensorflow&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;step-01-installing-cuda&#34;&gt;Step 01: Installing CUDA&lt;/h3&gt;
+&lt;p&gt;There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation.
+&lt;br/&gt;
+&lt;br/&gt;
+If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -26,8 +34,9 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
       <pubDate>Sun, 29 Apr 2018 10:20:35 +0530</pubDate>
       
       <guid>https://vibhuthasak.github.io/2018/04/neural_style/</guid>
-      <description>Welcome Everyone to the journey into Neural Style transfer. Let&amp;rsquo;s dive. 😃
-Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&amp;rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&amp;rsquo;s talk about the things can be done using the technology.</description>
+      <description>&lt;p&gt;Welcome Everyone to the journey into Neural Style transfer. Let&amp;rsquo;s dive. &amp;#x1f603;&lt;/p&gt;
+&lt;h2 id=&#34;level-one--introduction&#34;&gt;Level one : Introduction&lt;/h2&gt;
+&lt;p&gt;With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by &lt;a href=&#34;https://arxiv.org/abs/1508.06576&#34;&gt;Gatys et al&lt;/a&gt;. I&amp;rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&amp;rsquo;s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist&amp;rsquo;s style. It not an easy task if you do not have enough skills in painting. Don&amp;rsquo;t worry, Deep Learning have power to &lt;a href=&#34;https://www.britannica.com/topic/reincarnation&#34;&gt;reincarnate&lt;/a&gt; your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example. &lt;br&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,7 +45,46 @@ Level one : Introduction With the rise of Deep Learning technology people invent
       <pubDate>Thu, 26 Apr 2018 20:23:28 +0530</pubDate>
       
       <guid>https://vibhuthasak.github.io/about/</guid>
-      <description>Work :  Dialog Axiata PLC  Assistant Manager - (2021 Sept to Present) Specialist - (2020 Jan to 2021 Sept) Senior Executive - (2018 June to 2020 Jan)   DSI Samson Group - Sri Lanka  Engineering Intern - (2016 June to 2016 December)     Education :  General Sir John Kotelawala Defence University, SL (B.Sc in Engineering 2014 - 2018) Ananda College, Colombo, SL (High School 1999 - 2013)   Things I truly ❤  Honesty Integrity Hardwork Self learning and teamwork People with positive and creative mindset Teach and share     Favourite Quotes:   The cave you fear to enter holds the treasure you seek.</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;Work :
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dialog.lk/&#34;&gt;Dialog Axiata PLC&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Assistant Manager - (2021 Sept to Present)&lt;/li&gt;
+&lt;li&gt;Specialist - (2020 Jan to 2021 Sept)&lt;/li&gt;
+&lt;li&gt;Senior Executive - (2018 June to 2020 Jan)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.linkedin.com/company/dsi-samson-group---sri-lanka/&#34;&gt;DSI Samson Group - Sri Lanka&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Engineering Intern - (2016 June to 2016 December)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Education :
+&lt;ul&gt;
+&lt;li&gt;General Sir John Kotelawala Defence University, SL (B.Sc in Engineering 2014 - 2018)&lt;/li&gt;
+&lt;li&gt;Ananda College, Colombo, SL (High School 1999 - 2013)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Things I truly &amp;#x2764;&amp;#xfe0f;
+&lt;ul&gt;
+&lt;li&gt;Honesty&lt;/li&gt;
+&lt;li&gt;Integrity&lt;/li&gt;
+&lt;li&gt;Hardwork&lt;/li&gt;
+&lt;li&gt;Self learning and teamwork&lt;/li&gt;
+&lt;li&gt;People with positive and creative mindset&lt;/li&gt;
+&lt;li&gt;Teach and share&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;Favourite Quotes:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The cave you fear to enter holds the treasure you seek.&lt;/p&gt;</description>
     </item>
     
   </channel>

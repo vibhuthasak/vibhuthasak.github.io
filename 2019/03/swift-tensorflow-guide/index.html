@@ -1,69 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver - Vibhutha Kumarage
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation." />
-  <meta name="generator" content="Hugo 0.68.3 with theme pure" />
-  <title>Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver - Vibhutha Kumarage</title>
-  
-  
-  <link rel="stylesheet" href="https://vibhuthasak.github.io/css/style.min.1b6352f73b6758d54c234dd4359922a88eb198ba351b29f205d0ee5762a7ef61.css">
-  
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver" />
-<meta property="og:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vibhuthasak.github.io/2019/03/swift-tensorflow-guide/" />
-<meta property="article:published_time" content="2019-03-31T10:52:52+05:30" />
-<meta property="article:modified_time" content="2019-03-31T10:52:52+05:30" />
-<meta itemprop="name" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver">
-<meta itemprop="description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation.">
-<meta itemprop="datePublished" content="2019-03-31T10:52:52&#43;05:30" />
-<meta itemprop="dateModified" content="2019-03-31T10:52:52&#43;05:30" />
-<meta itemprop="wordCount" content="866">
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content=" This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation. If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command
+" />
+    <meta name="generator" content="Hugo 0.157.0 with theme pure" />
+    <title>Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver - Vibhutha Kumarage</title>
+    
+    
+    <link rel="stylesheet" href="https://vibhuthasak.github.io/css/style.min.65b309169c8af86b882c62df7965554760a0995948f11e07c6fc9fc152dba9db.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:url" content="https://vibhuthasak.github.io/2019/03/swift-tensorflow-guide/">
+  <meta property="og:site_name" content="Vibhutha Kumarage">
+  <meta property="og:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver">
+  <meta property="og:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation. If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-03-31T10:52:52+05:30">
+    <meta property="article:modified_time" content="2019-03-31T10:52:52+05:30">
+    <meta property="article:tag" content="Deep Learning">
+    <meta property="article:tag" content="Swift">
+    <meta property="article:tag" content="Tensorflow">
 
+  <meta itemprop="name" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver">
+  <meta itemprop="description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation. If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command">
+  <meta itemprop="datePublished" content="2019-03-31T10:52:52+05:30">
+  <meta itemprop="dateModified" content="2019-03-31T10:52:52+05:30">
+  <meta itemprop="wordCount" content="866">
+  <meta itemprop="keywords" content="Deep Learning,Swift,Tensorflow">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver">
+  <meta name="twitter:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
+Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation. You can skip to the next step if you prefer CPU only installation. If you have been working on Tensorflow or PyTorch, CUDA might be installed on your ubuntu machine. You can check the installed CUDA version using the below command">
 
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-<meta itemprop="keywords" content="Deep Learning,swift,tensorflow," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Up and Running with Swift for Tensorflow on Ubuntu 18.04 LTS Bionic Beaver"/>
-<meta name="twitter:description" content="This blog post will guide you through the process of install Swift for Tensorflow on Ubuntu 18.04 (Local Machine/VM instance) and Start Coding with Swift on the Jupyter Notebook like you do in Python for Tensorflow.
-Step 01: Installing CUDA There are several versions of Swift-TF available to install as you prefer. Namely (on 30th March 2019), CPU only version, CUDA 9.2 version and CUDA 10.0 version. This section is only focused on CUDA installation."/>
-
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
-
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
 
   
@@ -112,13 +113,14 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
   </div>
 </header><aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    <div class="widget">
+    
+      <div class="widget">
     <h3 class="widget-title"> Tags</h3>
     <div class="widget-body">
         <ul class="tag-list">
             
             
-            <li class="tag-list-item"><a href="https://vibhuthasak.github.io/tags/deep-learning/" class="tag-list-link">deep-learning</a><span
+            <li class="tag-list-item"><a href="https://vibhuthasak.github.io/tags/deep-learning/" class="tag-list-link">deep learning</a><span
                     class="tag-list-count">2</span></li>
             
             
@@ -133,6 +135,7 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
 
     </div>
 </div>
+      
 <div class="widget">
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget-body">
@@ -204,7 +207,7 @@ Step 01: Installing CUDA There are several versions of Swift-TF available to ins
 
   <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2019/03/swift-tensorflow-guide/#comments"
       class="article-comment-link">Comments</a></span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 5minutes </span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5 minutes </span>
 </div>
       
     </div>
@@ -226,7 +229,7 @@ Cuda compilation tools, release 10.0, V10.0.130
 </code></pre>
 <p>In my case, CUDA v10.0 is installed on my machine
 <br/>
-<strong>If you have v9.2 or v10.0 installed, You can go to the next step 😃</strong>
+<strong>If you have v9.2 or v10.0 installed, You can go to the next step &#x1f603;</strong>
 <br/>
 But sometimes you might get a response like below after executing the above command,</p>
 <pre><code class="language-console">(base) vkartz@ubuntu-dl:~$ nvcc --version
@@ -263,12 +266,12 @@ Copyright (c) 2005-2018 NVIDIA Corporation
 Built on Sat_Aug_25_21:08:01_CDT_2018
 Cuda compilation tools, release 10.0, V10.0.130
 </code></pre>
-<p><strong>If this went fine, You can go to the next step 😃</strong> <br/><br/>
+<p><strong>If this went fine, You can go to the next step &#x1f603;</strong> <br/><br/>
 <em>If Case #2 (CUDA not installed) :</em> <br/>
 To install CUDA on your machine properly, Go to <a href="https://www.tensorflow.org/install/gpu#install_cuda_with_apt">Tensorflow CUDA installation GUIDE</a> and follow their instructions on CUDA v10.0 installation.<br/>
-<strong>If this went fine, You can go to the next step 😃</strong> <br/><br/></p>
+<strong>If this went fine, You can go to the next step &#x1f603;</strong> <br/><br/></p>
 <h3 id="step-02-installing-swift-for-tensorflow">Step 02: Installing Swift for Tensorflow</h3>
-<p>You can follow the *<a href="https://github.com/tensorflow/swift/blob/master/Installation.md#installation-1">Installation Guide</a> on docs to install **but,**<br/>
+<p>You can follow the *<a href="https://github.com/tensorflow/swift/blob/master/Installation.md#installation-1">Installation Guide</a> on docs to install <strong>but,</strong><br/>
 *According to my experience during the process, I suggest following below <strong>Modified</strong> steps which will help you in later steps and clean installation.<br/></p>
 <ul>
 <li>Go to your home directory.</li>
@@ -282,7 +285,7 @@ To install CUDA on your machine properly, Go to <a href="https://www.tensorflow.
 </code></pre>
 <ul>
 <li>Visit Swift for Tensorflow Installation page on GitHub to <a href="https://github.com/tensorflow/swift/blob/master/Installation.md#releases">download the latest binary release</a> which is compatible with your CUDA version.
-Downloaded file looks like <br>_swift-tensorflow-RELEASE-0.2-cuda10.0-cudnn7-ubuntu18.04.tar_</li>
+Downloaded file looks like <br><em>swift-tensorflow-RELEASE-0.2-cuda10.0-cudnn7-ubuntu18.04.tar</em></li>
 <li>Then create a directory on your home directory called <strong>swift-toolchain</strong> and extract the downloaded file to that directory. This will create <code>~/swift-toolchain/usr</code> directory</li>
 </ul>
 <pre><code class="language-console">(base) vkartz@ubuntu-dl:~$ mkdir swift-toolchain
@@ -299,7 +302,7 @@ Type :help for assistance.
 Hello world
   2&gt;
 </code></pre>
-<p><strong>If the above steps went fine, You successfully installed swift and you can go to the next step 😃</strong> <br/><br/></p>
+<p><strong>If the above steps went fine, You successfully installed swift and you can go to the next step &#x1f603;</strong> <br/><br/></p>
 <h3 id="step-03-installing-jupyter-notebook-for-swift">Step 03: Installing Jupyter-Notebook for Swift</h3>
 <p>In this step, I am following <a href="https://github.com/google/swift-jupyter#swift-jupyter">Google&rsquo;s swift-jupyter</a> Installation Guide with some <strong>Modifications</strong>.<br/>
 On the above guide, there are several options available to install Jupyter Notebook for Swift. But I strongly suggest installing this via <strong>Conda</strong>.<br/></p>
@@ -384,6 +387,7 @@ Registered kernel 'Swift' as 'swift'!
 
     </div>
     <div class="article-footer">
+
     </div>
   </article>
   
@@ -429,7 +433,7 @@ Registered kernel 'Swift' as 'swift'!
             <i class="icon icon-twitter"></i></a></li>
 </ul>
   <div class="copyright">
-    <p class="copyright">© 2021 Vibhutha Kumarage
+    <p class="copyright">© 2026 Vibhutha Kumarage
       <br><a href="https://creativecommons.org/licenses/by/4.0">All Rights Reserved</a>.
       <br>Theme By <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>
       <br>Built with <a href="https://gohugo.io/">Hugo</a>
@@ -449,7 +453,7 @@ Registered kernel 'Swift' as 'swift'!
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('\x3Cscript src="js/jquery.min.js"><\/script>')
 </script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
@@ -461,8 +465,8 @@ Registered kernel 'Swift' as 'swift'!
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://vibhuthasak.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
-<script src="https://vibhuthasak.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+<script src="https://vibhuthasak.github.io/js/application.min.e4989ab4dc212027af8773861b05b6bc333a1217f6b0a1b3377a3a3dbd454483.js"></script>
+<script src="https://vibhuthasak.github.io/js/plugin.min.55cc3498567c2081a6895075033d3f95a086b09c2dbbf31cc4bc3bba415f0bd6.js"></script>
 
 <script>
     (function (window) {
@@ -480,7 +484,7 @@ Registered kernel 'Swift' as 'swift'!
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script type="text/javascript" src="https://vibhuthasak.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script type="text/javascript" src="https://vibhuthasak.github.io/js/insight.min.716b0c6a00b68ccc31a2b65345f3412f4246ffa94a90f8e25d525528b4504f9937880692bbe619023233caba5d0a17ebe23d7cfb57cd3a88f23ea337ad5e4d00.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 <script>
     tocbot.init({
@@ -496,16 +500,6 @@ Registered kernel 'Swift' as 'swift'!
 </script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-150909255-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
   </body>
 </html>

@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Neural Style Transfer Explained - Vibhutha Kumarage
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="Welcome Everyone to the journey into Neural Style transfer. Let&amp;rsquo;s dive. 😃
-Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&amp;rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&amp;rsquo;s talk about the things can be done using the technology." />
-  <meta name="generator" content="Hugo 0.68.3 with theme pure" />
-  <title>Neural Style Transfer Explained - Vibhutha Kumarage</title>
-  
-  
-  <link rel="stylesheet" href="https://vibhuthasak.github.io/css/style.min.1b6352f73b6758d54c234dd4359922a88eb198ba351b29f205d0ee5762a7ef61.css">
-  
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-  <meta property="og:title" content="Neural Style Transfer Explained" />
-<meta property="og:description" content="Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. 😃
-Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&rsquo;s talk about the things can be done using the technology." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vibhuthasak.github.io/2018/04/neural_style/" />
-<meta property="article:published_time" content="2018-04-29T10:20:35+05:30" />
-<meta property="article:modified_time" content="2018-04-29T10:20:35+05:30" />
-<meta itemprop="name" content="Neural Style Transfer Explained">
-<meta itemprop="description" content="Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. 😃
-Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&rsquo;s talk about the things can be done using the technology.">
-<meta itemprop="datePublished" content="2018-04-29T10:20:35&#43;05:30" />
-<meta itemprop="dateModified" content="2018-04-29T10:20:35&#43;05:30" />
-<meta itemprop="wordCount" content="727">
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. &#x1f603;
+Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&rsquo;s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist&rsquo;s style. It not an easy task if you do not have enough skills in painting. Don&rsquo;t worry, Deep Learning have power to reincarnate your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example. " />
+    <meta name="generator" content="Hugo 0.157.0 with theme pure" />
+    <title>Neural Style Transfer Explained - Vibhutha Kumarage</title>
+    
+    
+    <link rel="stylesheet" href="https://vibhuthasak.github.io/css/style.min.65b309169c8af86b882c62df7965554760a0995948f11e07c6fc9fc152dba9db.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:url" content="https://vibhuthasak.github.io/2018/04/neural_style/">
+  <meta property="og:site_name" content="Vibhutha Kumarage">
+  <meta property="og:title" content="Neural Style Transfer Explained">
+  <meta property="og:description" content="Welcome Everyone to the journey into Neural Style transfer. Let’s dive. 😃
+Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I’m not going to make you sleepy by discussing details in the paper at this level. Let’s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist’s style. It not an easy task if you do not have enough skills in painting. Don’t worry, Deep Learning have power to reincarnate your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-04-29T10:20:35+05:30">
+    <meta property="article:modified_time" content="2018-04-29T10:20:35+05:30">
+    <meta property="article:tag" content="Deep Learning">
 
+  <meta itemprop="name" content="Neural Style Transfer Explained">
+  <meta itemprop="description" content="Welcome Everyone to the journey into Neural Style transfer. Let’s dive. 😃
+Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I’m not going to make you sleepy by discussing details in the paper at this level. Let’s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist’s style. It not an easy task if you do not have enough skills in painting. Don’t worry, Deep Learning have power to reincarnate your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example.">
+  <meta itemprop="datePublished" content="2018-04-29T10:20:35+05:30">
+  <meta itemprop="dateModified" content="2018-04-29T10:20:35+05:30">
+  <meta itemprop="wordCount" content="727">
+  <meta itemprop="keywords" content="Deep Learning">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Neural Style Transfer Explained">
+  <meta name="twitter:description" content="Welcome Everyone to the journey into Neural Style transfer. Let’s dive. 😃
+Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I’m not going to make you sleepy by discussing details in the paper at this level. Let’s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist’s style. It not an easy task if you do not have enough skills in painting. Don’t worry, Deep Learning have power to reincarnate your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example.">
 
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-<meta itemprop="keywords" content="Deep Learning," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Neural Style Transfer Explained"/>
-<meta name="twitter:description" content="Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. 😃
-Level one : Introduction With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by Gatys et al. I&rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&rsquo;s talk about the things can be done using the technology."/>
-
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
-
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
 
   
@@ -112,13 +110,14 @@ Level one : Introduction With the rise of Deep Learning technology people invent
   </div>
 </header><aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    <div class="widget">
+    
+      <div class="widget">
     <h3 class="widget-title"> Tags</h3>
     <div class="widget-body">
         <ul class="tag-list">
             
             
-            <li class="tag-list-item"><a href="https://vibhuthasak.github.io/tags/deep-learning/" class="tag-list-link">deep-learning</a><span
+            <li class="tag-list-item"><a href="https://vibhuthasak.github.io/tags/deep-learning/" class="tag-list-link">deep learning</a><span
                     class="tag-list-count">2</span></li>
             
             
@@ -133,6 +132,7 @@ Level one : Introduction With the rise of Deep Learning technology people invent
 
     </div>
 </div>
+      
 <div class="widget">
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget-body">
@@ -190,7 +190,7 @@ Level one : Introduction With the rise of Deep Learning technology people invent
   
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://vibhuthasak.github.io/2018/04/neural_style/" class="article-date">
+<a href="https://vibhuthasak.github.io/2018/04/neural_style/" class="article-title">
   <time datetime="2018-04-29 10:20:35 &#43;0530 &#43;0530" itemprop="datePublished">2018-04-29</time>
 </a>
 </span>
@@ -202,12 +202,12 @@ Level one : Introduction With the rise of Deep Learning technology people invent
 
   <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="/2018/04/neural_style/#comments"
       class="article-comment-link">Comments</a></span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4minutes </span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4 minutes </span>
 </div>
       
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p>Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. 😃</p>
+      <p>Welcome Everyone to the journey into Neural Style transfer. Let&rsquo;s dive. &#x1f603;</p>
 <h2 id="level-one--introduction">Level one : Introduction</h2>
 <p>With the rise of Deep Learning technology people invented awesome things using this technology. Neural style transfer (aka Artistic style transfer) is one of the amazing works. It is introduced in 2015 by <a href="https://arxiv.org/abs/1508.06576">Gatys et al</a>. I&rsquo;m not going to make you sleepy by discussing details in the paper at this level. Let&rsquo;s talk about the things can be done using the technology. I believe you all like to draw your painting in your favorite artist&rsquo;s style. It not an easy task if you do not have enough skills in painting. Don&rsquo;t worry, Deep Learning have power to <a href="https://www.britannica.com/topic/reincarnation">reincarnate</a> your favorite artist and make him/her to draw your painting. Looking amazing right?. Let me show you an example. <br></p>
 <p>Here is your Image(In literature it is known as <strong>Content Image</strong>):</p>
@@ -219,7 +219,7 @@ Level one : Introduction With the rise of Deep Learning technology people invent
 <img src="/img/nn_style/nn_style.png" alt="Style Image">
 </p>
 <blockquote>
-<p>Now Let&rsquo;s do the Magic ✨</p>
+<p>Now Let&rsquo;s do the Magic &#x2728;</p>
 </blockquote>
 <p>This the Resulted image:</p>
 <p align="center">
@@ -233,7 +233,7 @@ Level one : Introduction With the rise of Deep Learning technology people invent
 <li><a href="https://cs231n.github.io/understanding-cnn/">Understanding CNN</a> (from cs231n)</li>
 <li><a href="https://www.youtube.com/watch?v=FTr3n7uBIuE">Convolutional Neural Networks</a> (by Siraj Ravel)</li>
 </ol>
-<p>For those who have understood CNN, follow me. Others, follow above links and See you in couple of days 👋</p>
+<p>For those who have understood CNN, follow me. Others, follow above links and See you in couple of days &#x1f44b;</p>
 <p>In any Neural Network Based model there are three main components. Namely,</p>
 <ol>
 <li>Data.</li>
@@ -312,6 +312,7 @@ Thank you for coming this journey with me. See you in another post. Until then, 
 
     </div>
     <div class="article-footer">
+
     </div>
   </article>
   
@@ -362,7 +363,7 @@ Thank you for coming this journey with me. See you in another post. Until then, 
             <i class="icon icon-twitter"></i></a></li>
 </ul>
   <div class="copyright">
-    <p class="copyright">© 2021 Vibhutha Kumarage
+    <p class="copyright">© 2026 Vibhutha Kumarage
       <br><a href="https://creativecommons.org/licenses/by/4.0">All Rights Reserved</a>.
       <br>Theme By <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>
       <br>Built with <a href="https://gohugo.io/">Hugo</a>
@@ -382,7 +383,7 @@ Thank you for coming this journey with me. See you in another post. Until then, 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('\x3Cscript src="js/jquery.min.js"><\/script>')
 </script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
@@ -394,8 +395,8 @@ Thank you for coming this journey with me. See you in another post. Until then, 
     })
     hljs.initHighlightingOnLoad();
 </script>
-<script src="https://vibhuthasak.github.io/js/application.min.bdeb64b910570b6c41badc6a05b7afb0c8ad9efd8525de3c7257d59e786326a3.js"></script>
-<script src="https://vibhuthasak.github.io/js/plugin.min.51ff8c7317566f82259170fa36e09c4493adc9b9378b427a01ad3f017ebac7dd.js"></script>
+<script src="https://vibhuthasak.github.io/js/application.min.e4989ab4dc212027af8773861b05b6bc333a1217f6b0a1b3377a3a3dbd454483.js"></script>
+<script src="https://vibhuthasak.github.io/js/plugin.min.55cc3498567c2081a6895075033d3f95a086b09c2dbbf31cc4bc3bba415f0bd6.js"></script>
 
 <script>
     (function (window) {
@@ -413,7 +414,7 @@ Thank you for coming this journey with me. See you in another post. Until then, 
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script type="text/javascript" src="https://vibhuthasak.github.io/js/insight.min.a343cd9a5a7698336b28ef3a7c16a3a1b1d2d5fb17dc8ed04022bbe08cc5459073a15bdafa3a8a58cdd56080784bdd69fa70b1ae8597565c799c57ed00f0e120.js" defer></script>
+<script type="text/javascript" src="https://vibhuthasak.github.io/js/insight.min.716b0c6a00b68ccc31a2b65345f3412f4246ffa94a90f8e25d525528b4504f9937880692bbe619023233caba5d0a17ebe23d7cfb57cd3a88f23ea337ad5e4d00.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
 <script>
     tocbot.init({
@@ -429,16 +430,6 @@ Thank you for coming this journey with me. See you in another post. Until then, 
 </script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-150909255-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
   </body>
 </html>
